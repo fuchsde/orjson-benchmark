@@ -82,7 +82,7 @@ Latency
 
 .. code-block::
 
-    poetry run tox -e setup,update,performance-latency-dumps,performance-latency-loads,graph-benchmark
+    poetry run tox -e setup,update,performance-latency-dumps,performance-latency-loads
 
 Memory
 ~~~~~~~~~~~
