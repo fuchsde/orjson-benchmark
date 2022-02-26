@@ -24,8 +24,6 @@ dataclass
 
     poetry run tox -e dataclass
 
-.. include:: doc/types/dataclass/benchmark.rst
-
 datetime
 ~~~~~~~~~~~
 No benchmark available.
@@ -49,12 +47,6 @@ numpy
 .. code-block::
 
     poetry run tox -e numpy
-
-.. include:: doc/types/numpy/benchmark_int32.rst
-.. include:: doc/types/numpy/benchmark_float64.rst
-.. include:: doc/types/numpy/benchmark_bool.rst
-.. include:: doc/types/numpy/benchmark_int8.rst
-.. include:: doc/types/numpy/benchmark_uint8.rst
 
 str
 ~~~~~~~~~
@@ -84,7 +76,6 @@ Serialization and deserialization performance of orjson is better than ultrajson
 
 * canada.json, 2.2MiB, coordinates of the Canadian border in GeoJSON format, containing floats and arrays, indented.
 
-
 Latency
 ~~~~~~~~~~~
 **Reproducing:** 
@@ -101,8 +92,6 @@ Memory
 
     poetry run tox -e setup,update,performance-memory
 
-.. include:: doc/performance/memory/benchmark.rst
-
 Other
 ================
 Sorting
@@ -112,8 +101,6 @@ Sorting
 .. code-block::
 
     poetry run tox -e sort
-
-.. image:: doc/sorting/image-github.json_sorting_unsorted.svg
 
 
 Indent
