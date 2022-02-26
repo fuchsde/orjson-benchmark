@@ -28,12 +28,9 @@ black = "^22.1.0"
 [tool.poetry.scripts]
 graph-boxplot = "orjson_benchmark.graph:box"
 graph-tabulate = "orjson_benchmark.graph:tab"
-test_dataclass = "orjson_benchmark.pydataclass:test_dataclass"
 test_numpy = "orjson_benchmark.pynumpy:test_numpy"
 test_memory = "orjson_benchmark.pymem:test_mem"
 test_nonstr = "orjson_benchmark.pynonstr:test_nonstr"
-test_sort = "orjson_benchmark.pysort:test_sort"
-test_indent = "orjson_benchmark.pyindent:test_indent"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
