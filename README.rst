@@ -113,10 +113,6 @@ Sorting
 
     poetry run tox -e sort
 
-.. raw:: html
-
-    <object data="doc/sorting/image-github.json_sorting_unsorted.svg" type="image/svg+xml"></object>
-
 .. image:: doc/sorting/image-github.json_sorting_unsorted.svg
 
 
