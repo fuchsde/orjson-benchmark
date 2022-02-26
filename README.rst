@@ -19,7 +19,7 @@ dataclass
 
     poetry run tox -e dataclass
 
-.. include:: ./doc/types/dataclass/benchmark.rst
+.. include:: doc/types/dataclass/benchmark.rst
 
 datetime
 ~~~~~~~~~~~
