@@ -1,7 +1,12 @@
 Orjson-Benchmark
 ================
+This repository is a copy of the benchmark to measure the performance and correctness of Python JSON libraries. It was copied and inspired from Orjson_.
 
-.. include:: doc/intro.rst
+.. _Orjson: https://github.com/ijl/orjson
+
+The goal is, using Poetry and Tox, to simplify the execution of the test and thus enable everyone to run the benchmark quickly.
+
+Furthermore, further steps were taken to improve it, such as naming the version used and structuring the readme file into different sub-files.
 
 **Reproducing the whole benchmark:** 
 
@@ -69,7 +74,16 @@ No benchmark available.
 
 Performance
 ================
-.. include:: doc/performance/performance.rst
+Serialization and deserialization performance of orjson is better than ultrajson, rapidjson, simplejson, or json. The benchmarks are done on fixtures of real data:
+
+* twitter.json, 631.5KiB, results of a search on Twitter for "一", containing CJK strings, dictionaries of strings and arrays of dictionaries, indented.
+
+* github.json, 55.8KiB, a GitHub activity feed, containing dictionaries of strings and arrays of dictionaries, not indented.
+
+* citm_catalog.json, 1.7MiB, concert data, containing nested dictionaries of strings and arrays of integers, indented.
+
+* canada.json, 2.2MiB, coordinates of the Canadian border in GeoJSON format, containing floats and arrays, indented.
+
 
 Latency
 ~~~~~~~~~~~
@@ -78,21 +92,6 @@ Latency
 .. code-block::
 
     poetry run tox -e setup,update,performance-latency-dumps,performance-latency-loads,graph-benchmark
-
-
-.. image:: doc/performance/latency/canada_deserialization.png
-.. image:: doc/performance/latency/canada_serialization.png
-
-.. image:: doc/performance/latency/citm_catalog_deserialization.png
-.. image:: doc/performance/latency/citm_catalog_serialization.png
-
-.. image:: doc/performance/latency/github_deserialization.png
-.. image:: doc/performance/latency/github_serialization.png
-
-.. image:: doc/performance/latency/twitter_deserialization.png
-.. image:: doc/performance/latency/twitter_serialization.png
-
-.. include:: doc/performance/latency/benchmark.rst
 
 Memory
 ~~~~~~~~~~~
@@ -114,7 +113,12 @@ Sorting
 
     poetry run tox -e sort
 
-.. include:: doc/sorting/benchmark.rst
+.. raw:: html
+
+    <object data="doc/sorting/image-github.json_sorting_unsorted.svg" type="image/svg+xml"></object>
+
+.. image:: doc/sorting/image-github.json_sorting_unsorted.svg
+
 
 Indent
 ~~~~~~~~~~~
@@ -123,5 +127,3 @@ Indent
 .. code-block::
 
     poetry run tox -e indent
-
-.. include:: doc/indent/benchmark.rst
