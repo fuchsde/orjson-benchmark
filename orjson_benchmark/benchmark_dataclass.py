@@ -36,6 +36,7 @@ def test_dataclass_as_dict(benchmark, library):
     benchmark.name = f"{library} {get_version(library)}"
     benchmark.extra_info["lib"] = library
     benchmark.extra_info["version"] = get_version(library)
+    benchmark.extra_info["correct"] = True
 
     if library == "json":
         as_dict = lambda: json.dumps(objects_as_dict).encode("utf-8")
@@ -59,6 +60,7 @@ def test_dataclass_as_dataclass(benchmark, library):
     benchmark.name = f"{library} {get_version(library)}"
     benchmark.extra_info["lib"] = library
     benchmark.extra_info["version"] = get_version(library)
+    benchmark.extra_info["correct"] = True
 
     def default(__obj):
         if dataclasses.is_dataclass(__obj):

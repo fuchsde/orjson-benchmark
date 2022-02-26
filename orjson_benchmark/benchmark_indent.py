@@ -42,6 +42,7 @@ def test_indent_compact(benchmark, fixture, library):
     else:
         raise NotImplementedError
 
+    benchmark.extra_info["correct"] = correct
     if correct:
         benchmark(time_compact, data)
     else:
@@ -78,6 +79,7 @@ def test_indent_pretty(benchmark, fixture, library):
     else:
         raise NotImplementedError
 
+    benchmark.extra_info["correct"] = correct
     if correct:
         benchmark(time_pretty, data)
     else:
