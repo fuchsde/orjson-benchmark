@@ -1,0 +1,9 @@
+__pycache__
+.benchmarks
+.tox
+script
+data/jsonchecker
+data/parsing
+data/roundtrip
+data/transform
+blns.txt.xz
