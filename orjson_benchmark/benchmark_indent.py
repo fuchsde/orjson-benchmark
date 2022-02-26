@@ -1,15 +1,17 @@
 # SPDX-License-Identifier: (Apache-2.0 OR MIT)
 
 import json
+
 import orjson
+import pytest
 import rapidjson
 import simplejson
 import ujson
-import pytest
 
 from .data import fixtures
 from .json_libraries import LIBRARIES, get_version
 from .util import read_fixture_obj
+
 
 @pytest.mark.parametrize("fixture", fixtures)
 @pytest.mark.parametrize("library", LIBRARIES)
@@ -48,6 +50,7 @@ def test_indent_compact(benchmark, fixture, library):
     else:
         benchmark(None, data)
 
+
 @pytest.mark.parametrize("fixture", fixtures)
 @pytest.mark.parametrize("library", LIBRARIES)
 def test_indent_pretty(benchmark, fixture, library):
@@ -64,7 +67,7 @@ def test_indent_pretty(benchmark, fixture, library):
     if library == "json":
         time_pretty = lambda data: json.dumps(data, indent=2).encode("utf-8")
         correct = test_correctness(json.dumps(data, indent=2).encode("utf-8"))
-    elif library == "simplejson": 
+    elif library == "simplejson":
         time_pretty = lambda data: simplejson.dumps(data, indent=2).encode("utf-8")
         correct = test_correctness(simplejson.dumps(data, indent=2).encode("utf-8"))
     elif library == "ujson":

@@ -1,15 +1,17 @@
 # SPDX-License-Identifier: (Apache-2.0 OR MIT)
 
 import json
+
 import orjson
+import pytest
 import rapidjson
 import simplejson
 import ujson
-import pytest
 
 from .data import fixtures
 from .json_libraries import LIBRARIES, get_version
 from .util import read_fixture_obj
+
 
 @pytest.mark.parametrize("fixture", fixtures)
 @pytest.mark.parametrize("library", LIBRARIES)
@@ -37,6 +39,7 @@ def test_sorting_sorted(benchmark, fixture, library):
 
     benchmark(dumps_sorted, data)
 
+
 @pytest.mark.parametrize("fixture", fixtures)
 @pytest.mark.parametrize("library", LIBRARIES)
 def test_sorting_unsorted(benchmark, fixture, library):
@@ -62,4 +65,3 @@ def test_sorting_unsorted(benchmark, fixture, library):
         raise NotImplementedError
 
     benchmark(dumps_unsorted, data)
-    

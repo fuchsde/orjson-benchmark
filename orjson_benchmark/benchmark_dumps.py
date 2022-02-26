@@ -13,7 +13,7 @@ from .util import read_fixture_str
 @pytest.mark.parametrize("fixture", fixtures)
 def test_dumps(benchmark, fixture, library):
     dumper, _, version = libraries[library]
-    
+
     benchmark.group = f"{fixture} serialization"
     benchmark.name = f"{library} {version}"
     benchmark.extra_info["lib"] = library

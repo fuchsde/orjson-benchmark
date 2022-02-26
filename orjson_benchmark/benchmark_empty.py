@@ -1,7 +1,6 @@
 # SPDX-License-Identifier: (Apache-2.0 OR MIT)
 
 from json import loads as json_loads
-from numpy import empty
 
 import pytest
 
