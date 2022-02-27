@@ -7,7 +7,6 @@ import json
 import sys
 from pathlib import Path
 
-import matplotlib.pyplot as plt
 from tabulate import tabulate
 
 from .json_libraries import LIBRARIES
