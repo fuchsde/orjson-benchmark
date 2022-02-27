@@ -36,3 +36,15 @@ def dump_string_io_to_file(filename: Path, buf: StringIO):
     with open(filename, "w") as file:
         buf.seek(0)
         copyfileobj(buf, file)
+
+
+def create_doc_folders():
+    print("FIXUTRE!")
+    Path("doc/indent").mkdir(parents=True, exist_ok=True)
+    Path("doc/latency/dumps").mkdir(parents=True, exist_ok=True)
+    Path("doc/latency/empty").mkdir(parents=True, exist_ok=True)
+    Path("doc/latency/loads").mkdir(parents=True, exist_ok=True)
+    Path("doc/memory").mkdir(parents=True, exist_ok=True)
+    Path("doc/sorting").mkdir(parents=True, exist_ok=True)
+    Path("doc/types/dataclass").mkdir(parents=True, exist_ok=True)
+    Path("doc/types/numpy").mkdir(parents=True, exist_ok=True)
