@@ -22,7 +22,7 @@ dataclass
 
 .. code-block::
 
-    poetry run tox -e dataclass
+    poetry run tox -e setup,update,dataclass
 
 datetime
 ~~~~~~~~~~~
@@ -46,7 +46,7 @@ numpy
 
 .. code-block::
 
-    poetry run tox -e numpy
+    poetry run tox -e setup,update,numpy
 
 str
 ~~~~~~~~~
@@ -100,7 +100,7 @@ Sorting
 
 .. code-block::
 
-    poetry run tox -e sort
+    poetry run tox -e setup,update,sort
 
 
 Indent
@@ -109,4 +109,4 @@ Indent
 
 .. code-block::
 
-    poetry run tox -e indent
+    poetry run tox -e setup,update,indent
