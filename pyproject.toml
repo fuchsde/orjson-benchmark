@@ -20,11 +20,11 @@ orjson = "^3.6.7"
 python-rapidjson = "^1.6"
 simplejson = "^3.17.6"
 ujson = "^5.1.0"
+psutil = "^5.9.0"
 
 [tool.poetry.scripts]
 setup-docs = "orjson_benchmark.util:create_doc_folders"
 graph-tabulate = "orjson_benchmark.graph:tab"
-test_memory = "orjson_benchmark.pymem:test_mem"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
