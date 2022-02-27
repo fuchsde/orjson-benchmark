@@ -32,7 +32,7 @@ def test_dumps(benchmark, fixture, library):
 def test_empty(benchmark, data, library):
     dumper, loader, version = libraries[library]
 
-    benchmark.group = f"{data} deserialization"
+    benchmark.group = f"empty deserialization"
     benchmark.name = f"{library} {version} {data}"
     benchmark.extra_info["lib"] = library
     benchmark.extra_info["version"] = version
