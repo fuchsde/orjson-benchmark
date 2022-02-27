@@ -7,14 +7,11 @@ from io import StringIO
 from pathlib import Path
 from shutil import copyfileobj
 from typing import Any
+from configparser import ConfigParser 
 
 import orjson
 
 dirname = os.path.join(os.path.dirname(__file__), "../data")
-
-if hasattr(os, "sched_setaffinity"):
-    os.sched_setaffinity(os.getpid(), {0, 1})
-
 
 @lru_cache(maxsize=None)
 def read_fixture_str(filename: str) -> str:
@@ -39,12 +36,9 @@ def dump_string_io_to_file(filename: Path, buf: StringIO):
 
 
 def create_doc_folders():
-    print("FIXUTRE!")
-    Path("doc/indent").mkdir(parents=True, exist_ok=True)
-    Path("doc/latency/dumps").mkdir(parents=True, exist_ok=True)
-    Path("doc/latency/empty").mkdir(parents=True, exist_ok=True)
-    Path("doc/latency/loads").mkdir(parents=True, exist_ok=True)
-    Path("doc/memory").mkdir(parents=True, exist_ok=True)
-    Path("doc/sorting").mkdir(parents=True, exist_ok=True)
-    Path("doc/types/dataclass").mkdir(parents=True, exist_ok=True)
-    Path("doc/types/numpy").mkdir(parents=True, exist_ok=True)
+    config, main = ConfigParser(), "main"
+    config.read("tox.ini")
+    if main in config.sections():
+        for key in config[main].keys():
+            if "_dir" in key:
+                Path(config[main][key]).mkdir(parents=True, exist_ok=True)
