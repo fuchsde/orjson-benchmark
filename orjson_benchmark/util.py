@@ -3,16 +3,17 @@
 
 import lzma
 import os
+from configparser import ConfigParser
 from functools import lru_cache
 from io import StringIO
 from pathlib import Path
 from shutil import copyfileobj
 from typing import Any
-from configparser import ConfigParser 
 
 import orjson
 
 dirname = os.path.join(os.path.dirname(__file__), "../data")
+
 
 @lru_cache(maxsize=None)
 def read_fixture_str(filename: str) -> str:
