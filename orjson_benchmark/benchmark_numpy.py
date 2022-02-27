@@ -2,12 +2,11 @@
 
 import json
 
+import numpy
 import orjson
 import pytest
 import rapidjson
 import simplejson
-import numpy
-import ujson
 
 from .json_libraries import LIBRARIES, get_version
 

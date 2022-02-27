@@ -50,7 +50,6 @@ def test_indent_compact(benchmark, fixture, library):
     benchmark(time_compact, data)
 
 
-
 @pytest.mark.parametrize("fixture", fixtures)
 @pytest.mark.parametrize("library", LIBRARIES)
 def test_indent_pretty(benchmark, fixture, library):
