@@ -11,7 +11,7 @@ import psutil
 import pytest
 from tabulate import tabulate
 
-from .data import fixtures
+from .data import FIXTURES
 from .json_libraries import LIBRARIES, get_version
 from .util import dump_string_io_to_file, read_fixture_str
 
@@ -20,10 +20,10 @@ HEADERS = ("Library", "Version", "import, read() RSS (MiB)", "loads() increase i
 DICT_TEST = {}
 
 
-@pytest.mark.parametrize("fixture", fixtures)
+@pytest.mark.parametrize("fixture", FIXTURES)
 @pytest.mark.parametrize("library", LIBRARIES)
 def test_sorted(fixture, library):
-    data = read_fixture_str(f"{fixture}.xz")
+    data = read_fixture_str(fixture)
 
     if library == "json":
         from json import dumps, loads
@@ -59,7 +59,7 @@ def test_sorted(fixture, library):
     else:
         DICT_TEST[fixture][library] = (library, get_version(library), "", "")
 
-    if len(DICT_TEST.keys()) == len(fixtures):
+    if len(DICT_TEST.keys()) == len(FIXTURES):
         if all(
             [
                 len(DICT_TEST[key]) == len(LIBRARIES) if type(DICT_TEST[key]) == dict else False

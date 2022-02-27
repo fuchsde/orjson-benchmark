@@ -10,7 +10,7 @@ import rapidjson
 import simplejson
 import ujson
 
-from .data import fixtures
+from .data import FIXTURES
 from .json_libraries import LIBRARIES, get_version
 from .util import read_fixture_str
 
@@ -31,8 +31,8 @@ def get_dumper_loader(library: str):
         raise NotImplementedError
 
 
+@pytest.mark.parametrize("fixture", FIXTURES)
 @pytest.mark.parametrize("library", LIBRARIES)
-@pytest.mark.parametrize("fixture", fixtures)
 def test_dumps(benchmark, fixture, library):
     dumper, _ = get_dumper_loader(library)
     benchmark.group = f"{fixture} serialization"
@@ -40,7 +40,7 @@ def test_dumps(benchmark, fixture, library):
     benchmark.extra_info["lib"] = library
     benchmark.extra_info["version"] = get_version(library)
 
-    data = read_fixture_str(f"{fixture}.xz")
+    data = read_fixture_str(fixture)
     if not json_loads(dumper(data)) == data:
         assert False
 
@@ -63,7 +63,7 @@ def test_empty(benchmark, data, library):
     benchmark(loader, data)
 
 
-@pytest.mark.parametrize("fixture", fixtures)
+@pytest.mark.parametrize("fixture", FIXTURES)
 @pytest.mark.parametrize("library", LIBRARIES)
 def test_loads(benchmark, fixture, library):
     dumper, loader = get_dumper_loader(library)
@@ -73,7 +73,7 @@ def test_loads(benchmark, fixture, library):
     benchmark.extra_info["lib"] = library
     benchmark.extra_info["version"] = get_version(library)
 
-    data = read_fixture_str(f"{fixture}.xz")
+    data = read_fixture_str(fixture)
 
     if not json_loads(dumper(loader(data))) == json_loads(data):
         assert False

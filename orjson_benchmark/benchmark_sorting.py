@@ -9,12 +9,12 @@ import rapidjson
 import simplejson
 import ujson
 
-from .data import fixtures
+from .data import FIXTURES
 from .json_libraries import LIBRARIES, get_version
 from .util import read_fixture_obj
 
 
-@pytest.mark.parametrize("fixture", fixtures)
+@pytest.mark.parametrize("fixture", FIXTURES)
 @pytest.mark.parametrize("library", LIBRARIES)
 def test_sorted(benchmark, fixture, library):
 
@@ -22,7 +22,7 @@ def test_sorted(benchmark, fixture, library):
     benchmark.name = f"{library} {get_version(library)}"
     benchmark.extra_info["lib"] = library
     benchmark.extra_info["version"] = get_version(library)
-    data = read_fixture_obj(f"{fixture}.xz")
+    data = read_fixture_obj(fixture)
 
     if library == "json":
         dumps_sorted = lambda data: json.dumps(data, sort_keys=True).encode("utf-8")
@@ -40,7 +40,7 @@ def test_sorted(benchmark, fixture, library):
     benchmark(dumps_sorted, data)
 
 
-@pytest.mark.parametrize("fixture", fixtures)
+@pytest.mark.parametrize("fixture", FIXTURES)
 @pytest.mark.parametrize("library", LIBRARIES)
 def test_unsorted(benchmark, fixture, library):
 
@@ -48,7 +48,7 @@ def test_unsorted(benchmark, fixture, library):
     benchmark.name = f"{library} {get_version(library)}"
     benchmark.extra_info["lib"] = library
     benchmark.extra_info["version"] = get_version(library)
-    data = read_fixture_obj(f"{fixture}.xz")
+    data = read_fixture_obj(fixture)
 
     if library == "json":
         dumps_unsorted = lambda data: json.dumps(data).encode("utf-8")

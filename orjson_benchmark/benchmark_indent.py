@@ -9,12 +9,12 @@ import rapidjson
 import simplejson
 import ujson
 
-from .data import fixtures
+from .data import FIXTURES
 from .json_libraries import LIBRARIES, get_version
 from .util import read_fixture_obj
 
 
-@pytest.mark.parametrize("fixture", fixtures)
+@pytest.mark.parametrize("fixture", FIXTURES)
 @pytest.mark.parametrize("library", LIBRARIES)
 def test_compact(benchmark, fixture, library):
 
@@ -22,7 +22,7 @@ def test_compact(benchmark, fixture, library):
     benchmark.name = f"{library} {get_version(library)}"
     benchmark.extra_info["lib"] = library
     benchmark.extra_info["version"] = get_version(library)
-    data = read_fixture_obj(f"{fixture}.xz")
+    data = read_fixture_obj(fixture)
 
     def test_correctness(serialized):
         return json.loads(serialized) == data
@@ -51,7 +51,7 @@ def test_compact(benchmark, fixture, library):
     benchmark(time_compact, data)
 
 
-@pytest.mark.parametrize("fixture", fixtures)
+@pytest.mark.parametrize("fixture", FIXTURES)
 @pytest.mark.parametrize("library", LIBRARIES)
 def test_pretty(benchmark, fixture, library):
 
@@ -59,7 +59,7 @@ def test_pretty(benchmark, fixture, library):
     benchmark.name = f"{library} {get_version(library)}"
     benchmark.extra_info["lib"] = library
     benchmark.extra_info["version"] = get_version(library)
-    data = read_fixture_obj(f"{fixture}.xz")
+    data = read_fixture_obj(fixture)
 
     def test_correctness(serialized):
         return json.loads(serialized) == data
