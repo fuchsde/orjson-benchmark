@@ -16,7 +16,7 @@ from .util import read_fixture_obj
 
 @pytest.mark.parametrize("fixture", fixtures)
 @pytest.mark.parametrize("library", LIBRARIES)
-def test_sorting_sorted(benchmark, fixture, library):
+def test_sorted(benchmark, fixture, library):
 
     benchmark.group = f"{fixture} sorting sorted"
     benchmark.name = f"{library} {get_version(library)}"
@@ -42,7 +42,7 @@ def test_sorting_sorted(benchmark, fixture, library):
 
 @pytest.mark.parametrize("fixture", fixtures)
 @pytest.mark.parametrize("library", LIBRARIES)
-def test_sorting_unsorted(benchmark, fixture, library):
+def test_unsorted(benchmark, fixture, library):
 
     benchmark.group = f"{fixture} sorting unsorted"
     benchmark.name = f"{library} {get_version(library)}"

@@ -14,7 +14,7 @@ from .json_libraries import LIBRARIES, get_version
 
 @pytest.mark.parametrize("fixture", ["int32", "float64", "bool", "int8", "uint8"])
 @pytest.mark.parametrize("library", LIBRARIES)
-def test_sorting_sorted(benchmark, fixture, library):
+def test_numpy(benchmark, fixture, library):
 
     benchmark.group = f"{fixture} dumps"
     benchmark.name = f"{library} {get_version(library)}"

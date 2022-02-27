@@ -16,7 +16,7 @@ from .util import read_fixture_obj
 
 @pytest.mark.parametrize("fixture", fixtures)
 @pytest.mark.parametrize("library", LIBRARIES)
-def test_indent_compact(benchmark, fixture, library):
+def test_compact(benchmark, fixture, library):
 
     benchmark.group = f"{fixture} indent compact"
     benchmark.name = f"{library} {get_version(library)}"
@@ -53,7 +53,7 @@ def test_indent_compact(benchmark, fixture, library):
 
 @pytest.mark.parametrize("fixture", fixtures)
 @pytest.mark.parametrize("library", LIBRARIES)
-def test_indent_pretty(benchmark, fixture, library):
+def test_pretty(benchmark, fixture, library):
 
     benchmark.group = f"{fixture} indent pretty"
     benchmark.name = f"{library} {get_version(library)}"

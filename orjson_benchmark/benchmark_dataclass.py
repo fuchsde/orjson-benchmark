@@ -34,7 +34,7 @@ output_in_kib = len(orjson.dumps(objects_as_dict)) / 1024
 
 
 @pytest.mark.parametrize("library", LIBRARIES)
-def test_dataclass_as_dict(benchmark, library):
+def test_as_dict(benchmark, library):
     benchmark.group = f"dataclass {output_in_kib:,.0f}KiB (orjson) as_dict"
     benchmark.name = f"{library} {get_version(library)}"
     benchmark.extra_info["lib"] = library
@@ -57,7 +57,7 @@ def test_dataclass_as_dict(benchmark, library):
 
 
 @pytest.mark.parametrize("library", LIBRARIES)
-def test_dataclass_as_dataclass(benchmark, library):
+def test_as_dataclass(benchmark, library):
     benchmark.group = f"dataclass {output_in_kib:,.0f}KiB (orjson) as_dataclass"
     benchmark.name = f"{library} {get_version(library)}"
     benchmark.extra_info["lib"] = library
