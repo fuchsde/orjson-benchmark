@@ -16,7 +16,7 @@ from .data import fixtures as FIXTURES
 from .json_libraries import LIBRARIES, get_version
 from .util import dump_string_io_to_file
 
-BENCHMARK_MEMORY_FILE = Path("doc/performance/memory/benchmark.rst")
+BENCHMARK_MEMORY_FILE = Path("doc/memory/benchmark.rst")
 
 
 def test_mem():
