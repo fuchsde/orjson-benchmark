@@ -44,11 +44,11 @@ def test_indent_compact(benchmark, fixture, library):
     else:
         raise NotImplementedError
 
-    benchmark.extra_info["correct"] = correct
-    if correct:
-        benchmark(time_compact, data)
-    else:
-        benchmark(None, data)
+    if not correct:
+        assert False
+
+    benchmark(time_compact, data)
+
 
 
 @pytest.mark.parametrize("fixture", fixtures)
@@ -82,8 +82,7 @@ def test_indent_pretty(benchmark, fixture, library):
     else:
         raise NotImplementedError
 
-    benchmark.extra_info["correct"] = correct
-    if correct:
-        benchmark(time_pretty, data)
-    else:
-        benchmark(None, data)
+    if not correct:
+        assert False
+
+    benchmark(time_pretty, data)

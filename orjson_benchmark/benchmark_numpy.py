@@ -20,7 +20,6 @@ def test_sorting_sorted(benchmark, fixture, library):
     benchmark.name = f"{library} {get_version(library)}"
     benchmark.extra_info["lib"] = library
     benchmark.extra_info["version"] = get_version(library)
-    benchmark.extra_info["correct"] = True
 
     if fixture == "int32":
         array = numpy.random.randint(((2**31) - 1), size=(100000, 100), dtype=numpy.int32)
@@ -46,7 +45,6 @@ def test_sorting_sorted(benchmark, fixture, library):
         numpy_dumps = lambda: simplejson.dumps(array, default=default).encode("utf-8")
     elif library == "ujson":
         numpy_dumps = None
-        benchmark.extra_info["correct"] = False
     elif library == "rapidjson":
         numpy_dumps = lambda: rapidjson.dumps(array, default=default).encode("utf-8")
     elif library == "orjson":
@@ -54,9 +52,7 @@ def test_sorting_sorted(benchmark, fixture, library):
     else:
         raise NotImplementedError
 
-    if numpy_dumps is not None: 
-        benchmark.extra_info["correct"] = json.loads(numpy_dumps()) == array.tolist()
-    else:
-        benchmark.extra_info["correct"] = False
+    if not json.loads(numpy_dumps()) == array.tolist():
+        assert False
 
     benchmark(numpy_dumps)

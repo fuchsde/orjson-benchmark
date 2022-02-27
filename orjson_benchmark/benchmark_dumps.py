@@ -20,6 +20,7 @@ def test_dumps(benchmark, fixture, library):
     benchmark.extra_info["version"] = version
 
     data = read_fixture_str(f"{fixture}.xz")
-    benchmark.extra_info["correct"] = json_loads(dumper(data)) == data
+    if not json_loads(dumper(data)) == data:
+        assert False
 
     benchmark(dumper, data)

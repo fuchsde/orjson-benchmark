@@ -21,7 +21,6 @@ def test_sorting_sorted(benchmark, fixture, library):
     benchmark.name = f"{library} {get_version(library)}"
     benchmark.extra_info["lib"] = library
     benchmark.extra_info["version"] = get_version(library)
-    benchmark.extra_info["correct"] = True
     data = read_fixture_obj(f"{fixture}.xz")
 
     if library == "json":
@@ -48,7 +47,6 @@ def test_sorting_unsorted(benchmark, fixture, library):
     benchmark.name = f"{library} {get_version(library)}"
     benchmark.extra_info["lib"] = library
     benchmark.extra_info["version"] = get_version(library)
-    benchmark.extra_info["correct"] = True
     data = read_fixture_obj(f"{fixture}.xz")
 
     if library == "json":

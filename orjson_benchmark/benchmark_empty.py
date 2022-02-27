@@ -16,6 +16,8 @@ def test_empty(benchmark, data, library):
     benchmark.name = f"{library} {version} {data}"
     benchmark.extra_info["lib"] = library
     benchmark.extra_info["version"] = version
-    benchmark.extra_info["correct"] = json_loads(dumper(loader(data))) == json_loads(data)
+    
+    if not json_loads(dumper(loader(data))) == json_loads(data):
+        assert False
 
     benchmark(loader, data)
