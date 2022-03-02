@@ -33,5 +33,10 @@ jobs:
           poetry-version: ${{ matrix.poetry-version }}
       - name: Install dependecies
         run: poetry install --remove-untracked
-      - name: Install dependecies
-        run: poetry install --remove-untracked
+      - name: Execute testbench
+        run: poetry run tox
+      - uses: actions/upload-artifact@v2
+        with:
+          name: doc
+          path: doc
+      
