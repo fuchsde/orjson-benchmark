@@ -1,11 +1,10 @@
 __pycache__
 .benchmarks
-.pymon
 .tox
+doc
 script
 data/jsonchecker
 data/parsing
 data/roundtrip
 data/transform
-doc/**/*.json
 blns.txt.xz

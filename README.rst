@@ -8,11 +8,16 @@ The goal is, using Poetry and Tox, to simplify the execution of the test and thu
 
 Furthermore some improvements as naming the library version used and code refactoring were added.
 
+
 **Reproducing the whole benchmark:** 
 
 .. code-block::
 
     poetry run tox
+
+**Results can be found here:** 
+
+https://github.com/fuchsde/orjson-benchmark/actions
 
 Types
 ================
