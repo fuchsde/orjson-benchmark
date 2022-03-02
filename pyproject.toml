@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "orjson-benchmark"
 version = "0.1.0"
-description = "Benchmarkin common JSON libraries for Python"
+description = "Benchmarking common JSON libraries for Python"
 authors = ["Dennis Fuchs <aaa@aaa.aaa>"]
 
 [tool.poetry.dependencies]
