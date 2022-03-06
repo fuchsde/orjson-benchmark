@@ -45,5 +45,5 @@ jobs:
         with:
           gzip: true
           path: doc-${{ matrix.os }}.zip
-          destination: orjson-benchmark/doc-${{ matrix.os }}.zip
+          destination: orjson-benchmark
       
