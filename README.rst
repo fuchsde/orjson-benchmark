@@ -17,7 +17,13 @@ Furthermore some improvements as naming the library version used and code refact
 
 **Results can be found here:** 
 
-https://github.com/fuchsde/orjson-benchmark/actions
+* `Ubuntu`_
+* `Windows`_
+* `Macos`_
+
+.. _Ubuntu: https://storage.googleapis.com/orjson-benchmark/doc-ubuntu-18.04.zip 
+.. _Windows: https://storage.googleapis.com/orjson-benchmark/doc-windows-latest.zip
+.. _Macos: https://storage.googleapis.com/orjson-benchmark/doc-macos-latest.zip
 
 Types
 ================
