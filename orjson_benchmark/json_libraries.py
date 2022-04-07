@@ -9,7 +9,7 @@ import simplejson
 import ujson
 
 LIBRARIES = ("orjson", "ujson", "rapidjson", "simplejson", "json")
-
+DUMP_TO = ("bytes", "string")
 
 def get_version(library: str) -> str:
     if library == "json":
