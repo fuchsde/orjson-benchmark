@@ -8,20 +8,24 @@ The goal is, using Poetry and Tox, to simplify the execution of the test and thu
 
 Furthermore some improvements as naming the library version used and code refactoring were added.
 
+To view the results visit the web app hosted on Heroku_.
 
-**Reproducing the whole benchmark:** 
+.. _Heroku: https://json-benchmark-visualize.herokuapp.com/
+
+
+**Reproducing the whole benchmark:**
 
 .. code-block::
 
     poetry run tox
 
-**Results can be found here:** 
+**Results can be found here:**
 
 * `Ubuntu`_
 * `Windows`_
 * `Macos`_
 
-.. _Ubuntu: https://storage.googleapis.com/orjson-benchmark/doc-ubuntu-18.04.zip 
+.. _Ubuntu: https://storage.googleapis.com/orjson-benchmark/doc-ubuntu-18.04.zip
 .. _Windows: https://storage.googleapis.com/orjson-benchmark/doc-windows-latest.zip
 .. _Macos: https://storage.googleapis.com/orjson-benchmark/doc-macos-latest.zip
 
@@ -29,7 +33,7 @@ Types
 ================
 dataclass
 ~~~~~~~~~~~
-**Reproducing:** 
+**Reproducing:**
 
 .. code-block::
 
@@ -53,7 +57,7 @@ No benchmark available.
 
 numpy
 ~~~~~~~~~~~
-**Reproducing:** 
+**Reproducing:**
 
 .. code-block::
 
@@ -89,7 +93,7 @@ Serialization and deserialization performance of orjson is better than ultrajson
 
 Latency
 ~~~~~~~~~~~
-**Reproducing:** 
+**Reproducing:**
 
 .. code-block::
 
@@ -97,7 +101,7 @@ Latency
 
 Memory
 ~~~~~~~~~~~
-**Reproducing:** 
+**Reproducing:**
 
 .. code-block::
 
@@ -107,7 +111,7 @@ Other
 ================
 Sorting
 ~~~~~~~~~~~
-**Reproducing:** 
+**Reproducing:**
 
 .. code-block::
 
@@ -116,7 +120,7 @@ Sorting
 
 Indent
 ~~~~~~~~~~~
-**Reproducing:** 
+**Reproducing:**
 
 .. code-block::
 
