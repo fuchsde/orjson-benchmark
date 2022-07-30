@@ -1,4 +1,3 @@
-from urllib import response
 import requests
 import sys
 from datetime import datetime
