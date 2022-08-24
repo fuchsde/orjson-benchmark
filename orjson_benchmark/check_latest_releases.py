@@ -2,8 +2,6 @@ import requests
 import sys
 from datetime import datetime
 
-requests
-
 github_api = "https://api.github.com/repos"
 packages = ["simplejson/simplejson", "ijl/orjson", "ultrajson/ultrajson", "Tencent/rapidjson"]
 
@@ -20,6 +18,10 @@ release_dates = [
     )
     for package in packages
 ]
+
+print(f"Latest Benchmark: {latest_benchmark}")
+for date in release_dates:
+    print(f"Release : {date} - {latest_benchmark < date}")
 
 if any([latest_benchmark < date for date in release_dates]):
     response = requests.post(
