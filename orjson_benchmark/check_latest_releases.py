@@ -29,3 +29,4 @@ if any([latest_benchmark < date for date in release_dates]):
         headers={"Authorization": f"token {sys.argv[1]}", "Accept": "application/vnd.github.v3+json"},
         json={"ref": "refs/heads/master"},
     )
+    print(response.text)
